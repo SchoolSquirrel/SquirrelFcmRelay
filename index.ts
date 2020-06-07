@@ -4,6 +4,11 @@ import * as express from "express";
 import * as helmet from "helmet";
 import * as firebase from "firebase-admin";
 import { Request, Response } from "express";
+import { config as envConfig } from "dotenv";
+
+if (process.env.NODE_ENV == "development") {
+    envConfig();
+}
 
 const properties = [
     "type",
