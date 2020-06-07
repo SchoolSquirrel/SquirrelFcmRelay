@@ -20,7 +20,7 @@ const properties = [
     "auth_uri",
     "token_uri",
     "auth_provider_x509_cert_url",
-    "client_x509_cert"
+    "client_x509_cert",
 ];
 const config = {};
 for (const p of properties) {
@@ -52,7 +52,6 @@ app.post("/", (req: Request, res: Response) => {
             res.status(500);
             res.send(error);
         });
-
 });
 // Default route
 app.get("/", (req: Request, res: Response) => {
@@ -62,5 +61,6 @@ app.get("/", (req: Request, res: Response) => {
 // Start server
 const port = process.env.port || (app.get("env") === "production" ? 80 : 3000);
 app.listen(port, () => {
+    // eslint-disable-next-line no-console
     console.log(`SquirrelFcmRelay Server successfully started on port ${port}!`);
 });
