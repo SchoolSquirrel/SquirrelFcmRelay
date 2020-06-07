@@ -20,11 +20,11 @@ const properties = [
     "auth_uri",
     "token_uri",
     "auth_provider_x509_cert_url",
-    "client_x509_cert",
+    "client_x509_cert_url",
 ];
 const config = {};
 for (const p of properties) {
-    config[p] = process.env[p];
+    config[p] = process.env[p].replace(/\\n/g, "\n");
 }
 
 // intialize firebase
