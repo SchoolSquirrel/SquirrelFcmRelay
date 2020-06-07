@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  push:
-    branches:
-      - refs/tags/*
+on: [push]
 
 jobs:
   deploy_to_docker:
