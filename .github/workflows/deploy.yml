@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - refs/tags/*
+
+jobs:
+  deploy_to_docker:
+    name: Build and Deploy 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - name: Install dependencies
+      run: npm i
+    - name: Build
+      working-directory: docker
+      run: ./build.sh
+    - name: Deploy to Docker Hub
+      working-directory: docker
+      run: ./deploy.sh ${{ secrets.DOCKER_HUB_USERNAME }} ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      
