@@ -16,8 +16,8 @@ jobs:
       run: npm i
     - name: Build
       working-directory: docker
-      run: ./build.sh
+      run: sudo bash ./build.sh
     - name: Deploy to Docker Hub
       working-directory: docker
-      run: ./deploy.sh ${{ secrets.DOCKER_HUB_USERNAME }} ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      run: sudo bash ./deploy.sh ${{ secrets.DOCKER_HUB_USERNAME }} ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       
