@@ -5,9 +5,26 @@ import * as helmet from "helmet";
 import * as firebase from "firebase-admin";
 import { Request, Response } from "express";
 
+const properties = [
+    "type",
+    "project_id",
+    "private_key_id",
+    "private_key",
+    "client_email",
+    "client_id",
+    "auth_uri",
+    "token_uri",
+    "auth_provider_x509_cert_url",
+    "client_x509_cert"
+];
+const config = {};
+for (const p of properties) {
+    config[p] = process.env[p];
+}
+
 // intialize firebase
 firebase.initializeApp({
-    credential: firebase.credential.cert(require("./credentials.json")),
+    credential: firebase.credential.cert(config),
 });
 
 // Create a new express application instance
