@@ -1,0 +1,42 @@
+{
+    "name": "squirrelfcmrelay",
+    "version": "1.0.0",
+    "description": "A simple firebase cloud messaging relay server",
+    "main": "index.js",
+    "scripts": {
+        "tsc": "tsc",
+        "start": "set debug=* && ts-node-dev --respawn --transpileOnly ./index.ts",
+        "prod": "tsc && node ./build/index.js",
+        "build": "tsc",
+        "lint": "eslint -c .eslintrc.json --ext .ts .",
+        "fix": "eslint -c .eslintrc.json --ext .ts . --fix"
+    },
+    "keywords": [
+        "relay",
+        "server",
+        "firebase",
+        "cloud",
+        "fcm"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SchoolSquirrel/SquirrelFcmRelay.git"
+    },
+    "author": "SchoolSquirrel Team",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/SchoolSquirrel/SquirrelFcmRelay/issues"
+    },
+    "homepage": "https://github.com/SchoolSquirrel/SquirrelFcmRelay#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "firebase-admin": "^8.12.1",
+        "helmet": "^3.22.0"
+    },
+    "devDependencies": {
+        "typescript": "^3.9.5",
+        "ts-node-dev": "^1.0.0-pre.44",
+        "@types/node": "^14.0.11"
+    }
+}
