@@ -1,4 +1,10 @@
 # SquirrelFcmRelay
+[![Available on Docker Hub](https://img.shields.io/badge/available_on-Docker_Hub-blue?logo=docker)](https://hub.docker.com/repository/docker/schoolsquirrel/squirrelfcmrelay)
+[![Deploy](https://github.com/SchoolSquirrel/squirrelfcmrelay/workflows/Deploy/badge.svg)](https://github.com/SchoolSquirrel/SquirrelFcmRelay/actions)
+[![License](https://img.shields.io/badge/License-MIT-blue)](./LICENSE.md)
+[![GitHub last commit](https://img.shields.io/github/last-commit/SchoolSquirrel/SquirrelFcmRelay?color=brightgreen)](https://github.com/SchoolSquirrel/SquirrelFcmRelay/commits)
+[![Maintenance](https://img.shields.io/maintenance/yes/2020)](https://github.com/SchoolSquirrel/SquirrelFcmRelay/commits)
+
 A FCM relay server for SchoolSquirrel.
 
 ## Usage
