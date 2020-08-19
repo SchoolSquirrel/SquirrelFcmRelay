@@ -19,9 +19,16 @@ Run the docker container and specify the following environment variables:
 - `token_uri`
 - `auth_provider_x509_cert_url`
 - `client_x509_cert_url`
+
 You can get those from the Firebase Console.
 
 To send a notification, just make a post request to `http(s)://serverurl.tld` with the payload in the request body.
+
+## Payload
+You can only send notifications to specific devices using their `token`. Sending to `condition`s or `topic`s is disabled for security reasons.
+
+In addition, only the `notification` and `data` properties are allowed. 
+
 
 ## Development
 - `npm i`
