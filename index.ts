@@ -44,14 +44,28 @@ if (app.get("env") === "production") {
 }
 // Setup route
 app.post("/", (req: Request, res: Response) => {
-    firebase.messaging().send(req.body)
-        .then((response) => {
-            res.send(response);
-        })
-        .catch((error) => {
-            res.status(500);
-            res.send(error);
-        });
+    if (!req.body?.token) {
+        res.status(400).send("You must specify a token of a device to send the notification to!");
+        return;
+    }
+    if (req.body?.topic) {
+        res.status(400).send("Sending notifications to topics is not allowed!");
+        return;
+    }
+    if (req.body?.condition) {
+        res.status(400).send("Sending notifications to conditions is not allowed!");
+        return;
+    }
+    firebase.messaging().send({
+        notification: req.body.notification || {},
+        data: req.body.data || {},
+        token: req.body.token,
+    }).then((response) => {
+        res.send(response);
+    }).catch((error) => {
+        res.status(500);
+        res.send(error);
+    });
 });
 // Default route
 app.get("/", (req: Request, res: Response) => {
