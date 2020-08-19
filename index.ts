@@ -6,8 +6,8 @@ import * as firebase from "firebase-admin";
 import { Request, Response } from "express";
 import { config as envConfig } from "dotenv";
 
-if (process.env.NODE_ENV == "development") {
-    envConfig();
+if (process.env.NODE_ENV?.trim() == "development") {
+    console.log(envConfig());
 }
 
 const properties = [
@@ -24,7 +24,7 @@ const properties = [
 ];
 const config = {};
 for (const p of properties) {
-    config[p] = process.env[p].replace(/\\n/g, "\n");
+    config[p] = process.env[p]?.replace(/\\n/g, "\n");
 }
 
 // intialize firebase
